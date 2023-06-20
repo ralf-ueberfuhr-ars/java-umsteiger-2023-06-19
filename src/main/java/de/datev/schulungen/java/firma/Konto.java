@@ -1,5 +1,7 @@
 package de.datev.schulungen.java.firma;
 
+import java.util.Objects;
+
 public class Konto {
 
     private final String iban;
@@ -19,6 +21,21 @@ public class Konto {
 
     public void setStand(long stand) {
         this.stand = stand;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Konto konto = (Konto) o;
+        return Objects.equals(iban, konto.iban);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(iban);
     }
 
     @Override

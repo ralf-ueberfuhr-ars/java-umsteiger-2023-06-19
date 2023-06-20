@@ -8,6 +8,8 @@ public class Start {
 
         Konto konto2 = new Konto("234");
         System.out.println(konto);
+
+
     }
 
 }
