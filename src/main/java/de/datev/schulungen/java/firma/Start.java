@@ -1,5 +1,7 @@
 package de.datev.schulungen.java.firma;
 
+import de.datev.schulungen.java.scheduler.SchedulingFramework;
+
 public class Start {
 
     public static void main(String[] args) {
@@ -16,6 +18,14 @@ public class Start {
             e.printStackTrace();
             System.err.println(e.getBetrag());
         }
+
+
+        Firma firma = new Firma("ACME", "Nürnberg", konto);
+        SchedulingFramework framework = new SchedulingFramework();
+        framework.handle(firma);
+
+        Mitarbeiter tom = new Mitarbeiter("Tom", 3000, konto2, MitarbeiterRolle.AUSZUBILDENDER);
+        framework.handle(tom);
 
     }
 

@@ -1,5 +1,6 @@
 package de.datev.schulungen.java.firma;
 
+import de.datev.schulungen.java.scheduler.Schedule;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 @AllArgsConstructor
@@ -49,7 +51,9 @@ public class Firma {
         mitarbeiter.getKonto().einzahlen(gehalt);
     }
 
+    @Schedule(1)
     public void gehaltZahlen() throws KontoNichtGedecktException {
+        System.out.println("Zahltag!");
         for(Mitarbeiter m : this.mitarbeiter) {
             gehaltZahlen(m);
         }

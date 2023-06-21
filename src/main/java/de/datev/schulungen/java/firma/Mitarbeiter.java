@@ -1,8 +1,11 @@
 package de.datev.schulungen.java.firma;
 
+import de.datev.schulungen.java.scheduler.Schedule;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.concurrent.TimeUnit;
 
 @AllArgsConstructor
 @Getter
@@ -17,6 +20,11 @@ public class Mitarbeiter {
 
     public int getUrlaub() {
         return this.rolle.getUrlaub(); // null?
+    }
+
+    @Schedule(value = 2500, unit = TimeUnit.MILLISECONDS)
+    public void niesen() {
+        System.out.println("Hatschi!");
     }
 
 }
