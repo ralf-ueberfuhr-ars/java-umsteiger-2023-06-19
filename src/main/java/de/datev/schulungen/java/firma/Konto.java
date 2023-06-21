@@ -16,11 +16,23 @@ public class Konto {
 
 
     public void einzahlen(long betrag) {
-        this.stand += betrag;
+        if(betrag > 0) {
+            this.stand += betrag;
+        } else {
+            throw new IllegalArgumentException("betrag must be gt zero");
+        }
     }
 
-    public void abheben(long betrag) {
-        this.stand -= betrag;
+    public void abheben(long betrag) throws KontoNichtGedecktException {
+        if(betrag > 0) {
+            if(this.stand >= betrag) {
+                this.stand -= betrag;
+            } else {
+                throw new KontoNichtGedecktException(this, betrag);
+            }
+        } else {
+            throw new IllegalArgumentException("betrag must be gt zero");
+        }
     }
 
     @Override

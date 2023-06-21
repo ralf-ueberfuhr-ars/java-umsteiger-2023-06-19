@@ -8,6 +8,7 @@ import lombok.Setter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 @AllArgsConstructor
@@ -29,6 +30,9 @@ public class Firma {
     }
 
     public void einstellen(Mitarbeiter mitarbeiter) {
+        if(null == mitarbeiter) {
+            throw new IllegalArgumentException("mitarbeiter must not be null");
+        }
         this.mitarbeiter.add(mitarbeiter);
     }
 
@@ -36,7 +40,7 @@ public class Firma {
         this.mitarbeiter.remove(mitarbeiter);
     }
 
-    private void gehaltZahlen(Mitarbeiter mitarbeiter) {
+    private void gehaltZahlen(Mitarbeiter mitarbeiter) throws KontoNichtGedecktException {
         // Gehalt ermitteln
         var gehalt = mitarbeiter.getGehalt();
         // Gehalt vom Konto der Firma abziehen
@@ -45,7 +49,7 @@ public class Firma {
         mitarbeiter.getKonto().einzahlen(gehalt);
     }
 
-    public void gehaltZahlen() {
+    public void gehaltZahlen() throws KontoNichtGedecktException {
         for(Mitarbeiter m : this.mitarbeiter) {
             gehaltZahlen(m);
         }

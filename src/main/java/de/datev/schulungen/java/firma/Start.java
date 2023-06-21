@@ -9,6 +9,13 @@ public class Start {
         Konto konto2 = new Konto("234");
         System.out.println(konto);
 
+        konto2.einzahlen(5);
+        try {
+            konto2.abheben(100);
+        } catch (KontoNichtGedecktException e) {
+            e.printStackTrace();
+            System.err.println(e.getBetrag());
+        }
 
     }
 
