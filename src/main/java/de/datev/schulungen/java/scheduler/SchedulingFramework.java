@@ -25,12 +25,7 @@ public class SchedulingFramework {
             Schedule annotation = m.getAnnotation(Schedule.class);
             if(annotation != null) {
                 scheduler.scheduleAtFixedRate(
-                  new Runnable() {
-                      @Override
-                      public void run() {
-                          execute(m,o);
-                      }
-                  },
+                  () -> execute(m,o),
                   0,
                   annotation.value(),
                   annotation.unit()

@@ -27,6 +27,10 @@ public class Start {
         Mitarbeiter tom = new Mitarbeiter("Tom", 3000, konto2, MitarbeiterRolle.AUSZUBILDENDER);
         framework.handle(tom);
 
+        int höchsteGehalt = firma.getTeuersterMitarbeiter()
+          .map(Mitarbeiter::getGehalt)
+          .orElse(0);
+
     }
 
 }
