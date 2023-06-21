@@ -23,6 +23,14 @@ public class Konto {
         this.stand = stand;
     }
 
+    public void einzahlen(long betrag) {
+        this.stand += betrag;
+    }
+
+    public void abheben(long betrag) {
+        this.stand -= betrag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
