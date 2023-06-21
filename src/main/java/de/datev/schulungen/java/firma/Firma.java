@@ -1,7 +1,6 @@
 package de.datev.schulungen.java.firma;
 
 import de.datev.schulungen.java.scheduler.Schedule;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,8 +8,6 @@ import lombok.Setter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 @AllArgsConstructor
