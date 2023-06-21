@@ -1,31 +1,24 @@
 package de.datev.schulungen.java.firma;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.stream.Stream;
 
+@AllArgsConstructor
+@Getter
+@Setter
 public class Firma {
 
     private final Collection<Mitarbeiter> mitarbeiter = new HashSet<>();
     private String name;
     private String sitz;
-
     private Konto konto;
-
-    public Firma(String name, String sitz, Konto konto) {
-        this.name = name;
-        this.sitz = sitz;
-        this.konto = konto;
-    }
-
-    public Konto getKonto() {
-        return konto;
-    }
-
-    public void setKonto(Konto konto) {
-        this.konto = konto;
-    }
 
 
     public Collection<Mitarbeiter> getMitarbeiter() {
@@ -68,20 +61,4 @@ public class Firma {
         return result;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSitz() {
-        return sitz;
-    }
-
-    public void setSitz(String sitz) {
-        this.sitz = sitz;
-    }
 }

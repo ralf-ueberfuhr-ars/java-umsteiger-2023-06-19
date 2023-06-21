@@ -1,27 +1,19 @@
 package de.datev.schulungen.java.firma;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Konto {
 
     private final String iban;
     private long stand; // in Cent // float: ungenau! // BigDecimal
 
-    public Konto(String iban) {
-        this.iban = iban;
-    }
-
-    public String getIban() {
-        return iban;
-    }
-
-    public long getStand() {
-        return stand;
-    }
-
-    public void setStand(long stand) {
-        this.stand = stand;
-    }
 
     public void einzahlen(long betrag) {
         this.stand += betrag;
