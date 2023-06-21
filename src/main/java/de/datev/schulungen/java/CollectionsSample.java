@@ -1,5 +1,7 @@
 package de.datev.schulungen.java;
 
+import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -62,9 +64,36 @@ public class CollectionsSample {
         c3.add("Tim");
         System.out.println(c3);
 
+        String min = min("x", "y");
+        int min1 = min(3, 4);
+        // Object x = min("x", 1);
 
+        // Raw Types
+        String[] strings = {"x", "y"};
+        Object[] objects = strings;
 
+        Collection<String> stringCol = Arrays.asList("x", "y");
+        //Collection<Object> objectCol = stringCol;
 
+        // Generische Typen sind "Schwesterklassen" mit einer gemeinsamen Oberklasse (Raw Type)
+        Collection rawCol = stringCol;
+
+        Collection<Integer> numbers = new HashSet<>();
+        numbers.add(3);
+        numbers.add(4);
+        Collection hack = numbers;
+        hack.add("test");
+
+        System.out.println(numbers);
+
+        for(Integer i : numbers) {
+            System.out.println(i);
+        }
+
+    }
+
+    private static <T extends Comparable<T>> T min(T p1, T p2) {
+        return p1.compareTo(p2)>0 ? p2 : p1;
     }
 
 
