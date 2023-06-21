@@ -13,5 +13,10 @@ public class Mitarbeiter {
     private String name;
     private int gehalt;
     private Konto konto;
+    private MitarbeiterRolle rolle = MitarbeiterRolle.ANGESTELLTER;
+
+    public int getUrlaub() {
+        return this.rolle.getUrlaub(); // null?
+    }
 
 }
