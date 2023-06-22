@@ -8,6 +8,7 @@ import lombok.Setter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @AllArgsConstructor
@@ -54,16 +55,18 @@ public class Firma {
         for(Mitarbeiter m : this.mitarbeiter) {
             gehaltZahlen(m);
         }
+        // geht nicht, weil Exception compiler-geprüft
+        // this.mitarbeiter.forEach(this::gehaltZahlen);
     }
 
-    public Mitarbeiter getTeuersterMitarbeiter() {
+    public Optional<Mitarbeiter> getTeuersterMitarbeiter() {
         Mitarbeiter result = null;
         for(Mitarbeiter m : this.mitarbeiter) {
             if(result == null || m.getGehalt() > result.getGehalt()) {
                 result = m;
             }
         }
-        return result;
+        return Optional.ofNullable(result);
     }
 
 }
